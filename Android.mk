@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_PACKAGE_NAME := Tether
 
 ## Force it to install on /system
-LOCAL_MODULE_PATH := $(TARGET_OUT)/system/app
+LOCAL_MODULE_PATH := $(TARGET_OUT)/app
 
 #LOCAL_PROGUARD_FLAGS := -include $(LOCAL_PATH)/proguard.flags
 

@@ -1,7 +1,7 @@
 NOTE
 ====
 
-This variant (it's not exactly a fork...) of wifi-tether is a modification to work on RCMod ROMs for ADQ devices (which use rfkill instead of a wifi module to control state), and it's not meant to work on other devices or ROMs.
+This variant (it's not exactly a fork...) of wifi-tether is a modification to work on RCMod ROMs for ADQ devices (which use rfkill instead of a wifi module to control state), and it's not meant to work on other devices or ROMs (although it probably will)
 
 Although the changes in this version are fairly simple, they do exist.
 
