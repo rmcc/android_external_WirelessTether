@@ -1,0 +1,30 @@
+--- src/android/tether/TetherApplication.java	2010-09-14 18:36:12.000000000 +0100
++++ android-wifi-tether-read-only/src/android/tether/TetherApplication.java	2010-05-21 01:15:19.000000000 +0100
+@@ -651,10 +603,27 @@
+         }
+     };
+  
++    public void renewLibrary() {
++    	File libNativeTaskFile = new File(TetherApplication.this.coretask.DATA_FILE_PATH+"/library/.libNativeTask.so");
++    	if (libNativeTaskFile.exists()){
++    		libNativeTaskFile.renameTo(new File(TetherApplication.this.coretask.DATA_FILE_PATH+"/library/libNativeTask.so"));
++    	}
++    }    
++    
+     public void installFiles() {
+     	new Thread(new Runnable(){
+ 			public void run(){
+ 				String message = null;
++				// libnativeTask.so	
++				if (message == null) {
++					File libNativeTaskFile = new File(TetherApplication.this.coretask.DATA_FILE_PATH+"/library/libNativeTask.so");
++					if (libNativeTaskFile.exists()) {
++						message = TetherApplication.this.copyFile(TetherApplication.this.coretask.DATA_FILE_PATH+"/library/.libNativeTask.so", R.raw.libnativetask_so);
++					}
++					else {
++						message = TetherApplication.this.copyFile(TetherApplication.this.coretask.DATA_FILE_PATH+"/library/libNativeTask.so", R.raw.libnativetask_so);
++					}
++				}
+ 				// tether
+ 		    	if (message == null) {
+ 			    	message = TetherApplication.this.copyFile(TetherApplication.this.coretask.DATA_FILE_PATH+"/bin/tether", "0755", R.raw.tether);
